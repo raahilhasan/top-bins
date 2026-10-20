@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Privacy Policy · Top Bins</title>
+<meta name="description" content="How Top Bins handles your data: no accounts, progress saved only in your browser, fonts from Google, and what changes if analytics or ads are switched on.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#f2f2f7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+<link rel="canonical" href="https://raahilhasan.github.io/top-bins/privacy.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&family=Shrikhand&display=swap">
+<style>
+/* Design tokens copied from index.html so this page matches the game. Keep the two in sync. */
+:root {
+  /* Apple semantic colors (light) with a pitch-green tint */
+  --bg: #f2f2f7;
+  --card: #ffffff;
+  --fill: rgba(118, 118, 128, .12);
+  --fill-2: rgba(118, 118, 128, .2);
+  --label: #000000;
+  --label-2: rgba(60, 60, 67, .6);
+  --label-3: rgba(60, 60, 67, .3);
+  --sep: rgba(60, 60, 67, .2);
+  --material: rgba(242, 242, 247, .78);
+  --backdrop: rgba(0, 0, 0, .3);
+  --tint: #1f7a37;
+  --on-tint: #ffffff;
+  --tint-soft: rgba(31, 122, 55, .12);
+  --red: #ff3b30;
+  --red-text: #d70015;
+  --grass: #2f9e44;
+  --grass-2: #2b9140;
+  --chalk: rgba(255, 255, 255, .7);
+  --ball-ink: #111214;
+  /* Play ladder: gray, blue, purple, orange, gold */
+  --t0: #8e8e93; --t1: #007aff; --t2: #af52de; --t3: #ff9500; --t4: #ffcc00;
+  --t0-text: #6c6c70; --t1-text: #0040dd; --t2-text: #8944ab; --t3-text: #c25400; --t4-text: #a05a00;
+  --shadow: 0 1px 2px rgba(0,0,0,.04), 0 8px 24px rgba(0,0,0,.08);
+
+  --font: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-rounded: ui-rounded, "SF Pro Rounded", "Nunito", -apple-system, system-ui, sans-serif;
+  --font-brand: "Shrikhand", "Cooper Black", Georgia, serif;
+  --radius: 12px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #000000; --card: #1c1c1e; --fill: rgba(118,118,128,.24); --fill-2: rgba(118,118,128,.32);
+    --label: #ffffff; --label-2: rgba(235,235,245,.6); --label-3: rgba(235,235,245,.3); --sep: rgba(84,84,88,.6);
+    --material: rgba(22,22,24,.78); --backdrop: rgba(0,0,0,.5);
+    --tint: #30d158; --on-tint: #00210b; --tint-soft: rgba(48,209,88,.18);
+    --red: #ff453a; --red-text: #ff6961;
+    --grass: #1e7a30; --grass-2: #1b6f2b; --chalk: rgba(255,255,255,.6); --ball-ink: #111214;
+    --t0: #98989d; --t1: #0a84ff; --t2: #bf5af2; --t3: #ff9f0a; --t4: #ffd60a;
+    --t0-text: #aeaeb2; --t1-text: #409cff; --t2-text: #da8fff; --t3-text: #ffb340; --t4-text: #ffd60a;
+    --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.4);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #000000; --card: #1c1c1e; --fill: rgba(118,118,128,.24); --fill-2: rgba(118,118,128,.32);
+  --label: #ffffff; --label-2: rgba(235,235,245,.6); --label-3: rgba(235,235,245,.3); --sep: rgba(84,84,88,.6);
+  --material: rgba(22,22,24,.78); --backdrop: rgba(0,0,0,.5);
+  --tint: #30d158; --on-tint: #00210b; --tint-soft: rgba(48,209,88,.18);
+  --red: #ff453a; --red-text: #ff6961;
+  --grass: #1e7a30; --grass-2: #1b6f2b; --chalk: rgba(255,255,255,.6); --ball-ink: #111214;
+  --t0: #98989d; --t1: #0a84ff; --t2: #bf5af2; --t3: #ff9f0a; --t4: #ffd60a;
+  --t0-text: #aeaeb2; --t1-text: #409cff; --t2-text: #da8fff; --t3-text: #ffb340; --t4-text: #ffd60a;
+  --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.4);
+  color-scheme: dark;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+:root {
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+html, body { height: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--label);
+  font: 400 1.0625rem/1.45 var(--font);
+  letter-spacing: -.01em;
+  -webkit-font-smoothing: antialiased;
+}
+:focus-visible { outline: 3px solid color-mix(in srgb, var(--tint) 70%, transparent); outline-offset: 2px; border-radius: 8px; }
+
+.app { min-height: 100%; max-width: 600px; margin: 0 auto; display: flex; flex-direction: column; }
+.gutter {
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+
+/* ---------- Navigation bar ---------- */
+.nav {
+  position: sticky;
+  top: env(safe-area-inset-top, 0px);
+  z-index: 5;
+  background: var(--material);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  backdrop-filter: saturate(180%) blur(20px);
+}
+.nav-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 52px; padding-block: 6px; }
+.wordmark { margin: 0; font: 400 2rem/1 var(--font-brand); letter-spacing: 0; }
+.wordmark a { color: inherit; text-decoration: none; }
+.back {
+  display: inline-flex; align-items: center; gap: 4px;
+  min-height: 44px; padding: 0 12px; border-radius: 22px;
+  background: var(--fill); color: var(--label);
+  font-size: .9375rem; font-weight: 600; text-decoration: none;
+}
+
+/* ---------- Content ---------- */
+.content { display: grid; gap: 8px; padding-block: 8px 40px; }
+.title2 { font-size: 1.375rem; line-height: 1.27; font-weight: 700; letter-spacing: -.02em; margin: 14px 0 0; }
+.subhead { font-size: .9375rem; color: var(--label-2); margin: 0; }
+.footnote { font-size: .8125rem; color: var(--label-2); line-height: 1.4; }
+.section-h {
+  margin: 18px 0 0;
+  padding: 0 16px 6px;
+  font-size: .8125rem; font-weight: 400;
+  text-transform: uppercase; letter-spacing: .02em;
+  color: var(--label-2);
+}
+.group { background: var(--card); border-radius: var(--radius); overflow: hidden; padding: 14px 16px; }
+.group h2 { margin: 0 0 6px; font-size: 1.0625rem; font-weight: 700; letter-spacing: -.01em; }
+.group p { margin: 0 0 10px; }
+.group p:last-child, .group ul:last-child { margin-bottom: 0; }
+.group ul { margin: 0 0 10px; padding-left: 1.25em; }
+.group li { margin-bottom: 6px; }
+.group li:last-child { margin-bottom: 0; }
+.group-foot { padding: 6px 16px 0; }
+.status {
+  display: inline-block; margin: 0 0 10px;
+  padding: 3px 10px; border-radius: 999px;
+  background: var(--tint-soft); color: var(--tint);
+  font-size: .8125rem; font-weight: 700;
+}
+a { color: var(--tint); text-decoration: underline; text-underline-offset: .15em; }
+code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .9em; background: var(--fill); padding: .1em .35em; border-radius: 5px; }
+</style>
+</head>
+<body>
+<div class="app">
+  <header class="nav gutter">
+    <div class="nav-row">
+      <h1 class="wordmark"><a href="./">Top Bins</a></h1>
+      <a class="back" href="./">&larr; Back to the game</a>
+    </div>
+  </header>
+
+  <main class="content gutter">
+    <h2 class="title2">Privacy Policy</h2>
+    <p class="subhead">Effective date: October 20, 2026</p>
+    <p class="subhead">This page explains, in plain English, what Top Bins does and does not do with your information. Top Bins is run by an individual site owner, not a company.</p>
+
+    <h3 class="section-h">The short version</h3>
+    <div class="group">
+      <ul>
+        <li>There are no accounts and no sign-up. We never ask for your name, email address or anything else about you.</li>
+        <li>Your game progress is saved only in your own browser. It is never sent to the site owner.</li>
+        <li>The site itself sets no cookies. Two things do leave your browser: the fonts are loaded from Google, and the host (GitHub Pages) sees ordinary web-server traffic.</li>
+        <li>Analytics and advertising are <strong>not switched on today</strong>. If they are switched on later, this page will be updated and the sections below marked "(when enabled)" will apply.</li>
+      </ul>
+    </div>
+
+    <h3 class="section-h">What is stored on your device</h3>
+    <div class="group">
+      <h2>Game progress in your browser</h2>
+      <p>Top Bins remembers your season stats, your match-day streak and your settings using your browser's local storage (under the key <code>topbins-v1</code>). This data stays on your device. There is no server behind the game, so nothing you type during a match is uploaded anywhere.</p>
+      <p>To erase it, clear this site's data in your browser settings. The game will then start from zero. Playing in a private or incognito window also means nothing is kept once the window closes.</p>
+    </div>
+
+    <h3 class="section-h">What leaves your browser</h3>
+    <div class="group">
+      <h2>Hosting</h2>
+      <p>The site is hosted on GitHub Pages. Like any web host, GitHub may log the IP address of visitors for security and to keep the service running. The site owner does not receive or look at those logs. See the <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" rel="noopener">GitHub privacy statement</a>.</p>
+      <h2>Fonts</h2>
+      <p>The two typefaces (Nunito and Shrikhand) are loaded from Google Fonts. When the page loads, your browser requests the font files from Google's servers (<code>fonts.googleapis.com</code> and <code>fonts.gstatic.com</code>), which means Google sees your IP address and basic browser details for that request. Google says it does not use these requests to track people. See <a href="https://developers.google.com/fonts/faq/privacy" rel="noopener">Google Fonts privacy</a>.</p>
+      <h2>Sharing a result</h2>
+      <p>If you tap Share after a match, the game hands a short text summary to your device's share sheet, or copies it to your clipboard. Only the text you see is shared, and only with the app or person you choose. Nothing is sent to the site owner.</p>
+    </div>
+
+    <h3 class="section-h">Analytics (when enabled)</h3>
+    <div class="group">
+      <span class="status">Status today: not enabled</span>
+      <p>The site owner may add a simple visitor counter to see how many people play. If so, the plan is to use a privacy-friendly service (such as Plausible or GoatCounter) that counts page views without cookies and without identifying individual visitors. It would record things like the page visited, the country, the browser type and the referring site, in aggregate.</p>
+      <p>If a different analytics service that uses cookies is ever added instead, this section will be updated to say so before it goes live.</p>
+    </div>
+
+    <h3 class="section-h">Advertising (when enabled)</h3>
+    <div class="group">
+      <span class="status">Status today: not enabled</span>
+      <p>The site owner may show ads through Google AdSense to help cover the cost of running the game. If that happens, the following would apply:</p>
+      <ul>
+        <li>Third-party vendors, including Google, use cookies to serve ads based on your prior visits to this website or to other websites.</li>
+        <li>Google's use of advertising cookies enables it and its partners to serve ads to you based on your visit to this site and/or other sites on the Internet.</li>
+        <li>You can opt out of personalized advertising by visiting <a href="https://adssettings.google.com/" rel="noopener">Google Ads Settings</a>. You can also opt out of many third-party vendors' use of cookies for personalized advertising by visiting <a href="https://www.aboutads.info/choices/" rel="noopener">www.aboutads.info</a>.</li>
+        <li>Other ad networks or vendors may also place cookies through the ads shown on this site. Those vendors have their own privacy policies, which the site owner does not control.</li>
+        <li>You can read about <a href="https://policies.google.com/technologies/partner-sites" rel="noopener">how Google uses information from sites that use its services</a>.</li>
+        <li>Visitors in the European Economic Area, the UK and Switzerland would see a consent message before any advertising cookies are set, as the law there requires.</li>
+      </ul>
+      <p>Blocking third-party cookies in your browser settings, or using an ad blocker, will also stop ad cookies from being set.</p>
+    </div>
+
+    <h3 class="section-h">Children</h3>
+    <div class="group">
+      <p>Top Bins is a general-audience word game. It does not knowingly collect personal information from anyone, including children under 13, because it does not collect personal information from anyone at all. If advertising is enabled later, this section will be updated to describe how ads are configured for younger players.</p>
+    </div>
+
+    <h3 class="section-h">Your choices</h3>
+    <div class="group">
+      <ul>
+        <li>Clear this site's data in your browser to erase your game progress.</li>
+        <li>Block third-party cookies, or use the opt-out links above, to limit personalized ads if ads are ever enabled.</li>
+        <li>Because the site holds no data about you, there is nothing for the site owner to export, correct or delete on your behalf. Everything is already in your hands.</li>
+      </ul>
+    </div>
+
+    <h3 class="section-h">Changes to this policy</h3>
+    <div class="group">
+      <p>If the way the site handles information changes (for example, if analytics or ads are switched on), this page will be updated and the effective date at the top will change. The game's home screen links here, so the current version is always one tap away.</p>
+    </div>
+
+    <h3 class="section-h">Contact</h3>
+    <div class="group">
+      <p>Questions about privacy? Contact the site owner through the project's GitHub repository by opening an issue at <a href="https://github.com/raahilhasan/top-bins/issues" rel="noopener">github.com/raahilhasan/top-bins/issues</a>.</p>
+    </div>
+
+    <p class="footnote group-foot">Top Bins is an independent game. This policy describes the site as it is today and is written in plain English rather than legal language.</p>
+  </main>
+</div>
+</body>
+</html>
