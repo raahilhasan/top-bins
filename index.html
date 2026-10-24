@@ -463,6 +463,236 @@ svg.i { width: 1.25em; height: 1.25em; flex: none; }
   .deck.glow { filter: none; }
   .sheet, .backdrop, .toast, .bars span, .ring .bar, .btn, .hero-ball, #pitchBall { transition: none; }
 }
+
+/* ---------- Wide screens (landscape / desktop): the broadcast stage ----------
+   Kept at the end of the stylesheet on purpose: several rules override same-specificity
+   base rules by source order. Nothing below 800px changes; portrait phones keep the column. */
+
+/* Column wrappers on Home and Results. Below 800px they generate no box,
+   so the .content grid sees exactly the same children it does today. */
+.col { display: contents; }
+
+@media (min-width: 800px) {
+  /* ---------- Shell ---------- */
+  .app { max-width: none; }
+  /* The empty toast's bottom edge peeks into the viewport while hidden; park it fully off-screen. */
+  .toast { transform: translate(-50%, calc(-100% - 24px)); }
+
+  /* ---------- Home + Results: full-width bars, capped rows ---------- */
+  #home .nav, #results .nav {
+    padding-left: max(24px, env(safe-area-inset-left, 0px));
+    padding-right: max(24px, env(safe-area-inset-right, 0px));
+  }
+  #home .nav-row, #results .nav-row { width: min(1120px, 100%); margin-inline: auto; min-height: 60px; }
+  #home .wordmark { font-size: 2.25rem; }
+  #home .wordmark svg { width: 36px; height: 36px; }
+
+  #home .content, #results .content {
+    width: min(1120px, 100%); margin-inline: auto;
+    padding: 16px max(24px, env(safe-area-inset-right, 0px)) 40px max(24px, env(safe-area-inset-left, 0px));
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    column-gap: 32px; row-gap: 8px;
+    align-items: start;
+  }
+  #results .content { grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); }
+  .col { display: grid; gap: 8px; align-content: start; min-width: 0; }
+  .col-a { grid-column: 1; }
+  .col-b { grid-column: 2; }
+  .col-b > .section-h:first-child { margin-top: 6px; }
+  #home .content > .footnote { grid-column: 1 / -1; max-width: 72ch; justify-self: center; text-align: center; }
+  #results .content > .ad-slot { grid-column: 1 / -1; }
+
+  /* Hero cards grow into their column */
+  .hero { padding: 28px 28px 24px; border-radius: 24px; gap: 12px; }
+  .hero-ball { width: 220px; }
+  .hero .title2 { font-size: 1.75rem; max-width: 20ch; }
+  .hero .subhead { font-size: 1.0625rem; max-width: 36ch; }
+  .results-hero { padding: 28px 24px; border-radius: 24px; }
+  .bars { max-width: 360px; height: 110px; }
+  /* Ladder rows read as a table on wide screens: name | example | yards */
+  #tierGroup .row-main { grid-template-columns: 8.5em minmax(0, 1fr); column-gap: 12px; align-items: baseline; }
+
+  /* ---------- Dock: a floating action bar, bottom centre ---------- */
+  #home .dock, #results .dock {
+    position: sticky; bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+    align-self: center; width: auto; max-width: calc(100% - 48px);
+    margin: auto auto calc(16px + env(safe-area-inset-bottom, 0px));
+    padding: 8px; gap: 8px;
+    border: .5px solid var(--sep); border-radius: 999px;
+    box-shadow: var(--shadow);
+  }
+  #home .dock .btn, #results .dock .btn {
+    flex: none; min-width: 200px; min-height: 52px; padding: 0 28px;
+    border-radius: 999px; font-size: 1.125rem;
+  }
+
+  /* ---------- Play: the broadcast stage ---------- */
+  #play {
+    display: grid; isolation: isolate;
+    width: min(1280px, 100%); margin-inline: auto;
+    padding: 12px max(24px, env(safe-area-inset-right, 0px)) 0 max(24px, env(safe-area-inset-left, 0px));
+    /* quit | segments | clock | goals | yards */
+    grid-template-columns: auto minmax(0, 1fr) auto auto auto;
+    /* scorebug | space | kicker | headline | tip | pitch | space | composer */
+    grid-template-rows: 88px minmax(16px, 1fr) auto auto auto auto minmax(16px, 1fr) auto;
+    column-gap: 12px; row-gap: 0;
+    align-items: center;
+  }
+  /* The bar and body give up their boxes so the clock can sit in the scorebug row. */
+  #play .play-bar, #play .play-body { display: contents; }
+
+  /* Scorebug plate behind row 1 */
+  #play::before {
+    content: ""; grid-area: 1 / 1 / 2 / -1; align-self: stretch;
+    margin: 0 -14px; z-index: -1;
+    background: var(--card); border-radius: 24px; box-shadow: var(--shadow);
+  }
+  #quitBtn { grid-area: 1 / 1; margin-left: 6px; }
+  #segments { grid-area: 1 / 2; gap: 6px; }
+  #segments span { height: 8px; border-radius: 4px; }
+  #deckWrap { grid-area: 1 / 3; justify-self: center; margin-inline: 6px; }
+  .play-bar .score-pill:nth-of-type(1) { grid-area: 1 / 4; }
+  .play-bar .score-pill:nth-of-type(2) { grid-area: 1 / 5; margin-right: 6px; }
+  #play .score-pill { height: 40px; padding: 0 14px; border-radius: 20px; font-size: 1.25rem; }
+  #play .score-pill .i { width: 20px; height: 20px; }
+  #play .deck { width: 76px; padding: 5px; }
+  /* Digits need a dark halo to stay legible over the ball's pattern at this size */
+  #play .secs { font-size: 1.5rem; text-shadow: 0 0 3px rgba(0, 0, 0, .9), 0 0 3px rgba(0, 0, 0, .9), 0 1px 2px rgba(0, 0, 0, .9); }
+
+  /* Stage: kicker, headline, pitch */
+  #trackNo, #promptText, #tip, #play .pitch-wrap, #play .composer-area { grid-column: 1 / -1; justify-self: center; }
+  #trackNo { grid-row: 3; margin: 0 0 10px; font-size: .9375rem; letter-spacing: .12em; }
+  #promptText { grid-row: 4; font-size: clamp(2.25rem, 4.2vw, 3.75rem); line-height: 1.08; max-width: 26ch; }
+  #tip { grid-row: 5; margin-top: 14px; font-size: 1.125rem; max-width: 48ch; }
+  /* The strip fills the stage, but never taller than the window can afford (150vh keeps a 5:1 strip under 30% of the height) */
+  #play .pitch-wrap { grid-row: 6; width: min(100%, 150vh); max-width: none; margin-top: 28px; gap: 10px; }
+  #play .pitch { box-shadow: none; filter: drop-shadow(0 12px 32px rgba(0, 0, 0, .16)); }
+  #play .pitch g[stroke-width] { stroke-width: 1.1; }
+  #play .pitch-text { font-size: .9375rem; }
+
+  /* Composer docked bottom centre */
+  #play .composer-area { grid-row: 8; width: min(680px, 100%); padding: 8px 0 calc(24px + env(safe-area-inset-bottom, 0px)); gap: 10px; }
+  #play .composer { border-radius: 30px; padding: 6px 6px 6px 22px; }
+  #play .composer input { height: 48px; font-size: 1.25rem; }
+  #play .send { width: 48px; height: 48px; }
+
+  /* Reveal floats ("+75 yds", "GOAL!") rise from the centre of the stage, not from the small clock. */
+  #play .float { position: fixed; left: 50%; top: 50%; z-index: 3; font-size: calc(var(--fs, 1.8rem) * 1.6); }
+  #play .float.goal { font-size: 4.5rem; }
+
+  /* Pointer hover states */
+  @media (hover: hover) {
+    .icon-btn:hover, .btn-gray:hover { background: var(--fill-2); }
+    .btn-tinted:hover { background: color-mix(in srgb, var(--tint) 22%, transparent); }
+    .send:not(:disabled):hover { filter: brightness(1.06); }
+  }
+
+  /* ---------- Sheets ---------- */
+  .sheet { border: .5px solid var(--sep); }
+  .sheet .grabber { display: none; }
+
+  /* Quit confirm + Help: centred dialogs */
+  #quitSheet, #helpSheet {
+    bottom: auto; top: 50%;
+    transform: translate(-50%, -50%) scale(.96); opacity: 0;
+    border-radius: 22px;
+    padding: 22px 24px 24px;
+    max-height: min(86vh, 760px);
+    box-shadow: 0 24px 80px rgba(0, 0, 0, .35);
+    transition: transform .22s cubic-bezier(.2, .9, .25, 1), opacity .18s ease;
+  }
+  #quitSheet:not(.open), #helpSheet:not(.open) { pointer-events: none; }
+  #quitSheet.open, #helpSheet.open { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+  #helpSheet { width: min(560px, calc(100% - 48px)); }
+  #quitSheet { width: min(440px, calc(100% - 48px)); }
+  #quitSheet .sheet-actions { grid-template-columns: 1fr 1fr; }
+
+  /* Answer reveal: a broadcast lower third that leaves the pitch visible */
+  #revealSheet {
+    bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+    width: min(1040px, calc(100% - 2 * max(24px, env(safe-area-inset-left, 0px), env(safe-area-inset-right, 0px))));
+    transform: translate(-50%, calc(100% + 40px));
+    border-radius: 22px;
+    padding: 20px 24px;
+    max-height: calc(100% - 32px);
+    grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+    column-gap: 32px; row-gap: 12px;
+    align-items: start;
+    box-shadow: 0 18px 60px rgba(0, 0, 0, .28);
+  }
+  #revealSheet.open { transform: translate(-50%, 0); }
+  #revealTop { grid-area: 1 / 1; padding-top: 0; }
+  #revealTop + div { grid-area: 2 / 1; }
+  #revealSheet .ladder-labels { grid-area: 3 / 1; }
+  #revealStatus { grid-area: 4 / 1; align-self: end; }
+  #revealSheet .group { grid-area: 1 / 2 / 4 / 3; }
+  #nextBtn { grid-area: 4 / 2; align-self: end; }
+  #revealSheet .reveal-answer, #revealSheet .reveal-pts { font-size: 2rem; }
+
+  /* While the lower third is up, dim only the lower stage so the pitch stays readable.
+     Browsers without :has() keep the full-screen dim. */
+  body:has(#revealSheet.open) .backdrop { background: linear-gradient(to top, var(--backdrop) 25%, transparent 70%); }
+}
+
+/* Short desktop windows (a 1366x768 laptop shows about 650px): keep the stage on one screen. */
+@media (min-width: 800px) and (max-height: 720px) {
+  #play { grid-template-rows: 72px minmax(10px, 1fr) auto auto auto auto minmax(10px, 1fr) auto; }
+  #play .deck { width: 60px; }
+  #play .secs { font-size: 1.25rem; }
+  #trackNo { margin-bottom: 6px; }
+  #promptText { font-size: clamp(1.75rem, 3.4vw, 2.75rem); }
+  #play .pitch-wrap { width: min(100%, 140vh); margin-top: 18px; }
+  #play .composer-area { padding: 4px 0 calc(14px + env(safe-area-inset-bottom, 0px)); gap: 6px; }
+}
+
+/* Phone held in landscape (about 840x390): everything fits without scrolling,
+   and the answer box sits low and central so the keyboard reveals it. */
+@media (min-width: 800px) and (max-height: 520px) and (orientation: landscape) {
+  #play {
+    padding-top: 8px;
+    grid-template-rows: 60px minmax(6px, 1fr) auto auto auto auto minmax(6px, 1fr) auto;
+    column-gap: 10px;
+  }
+  #play::before { margin: 0 -10px; border-radius: 18px; }
+  #play .deck { width: 50px; padding: 4px; }
+  #play .secs { font-size: 1.125rem; }
+  #play .score-pill { height: 34px; font-size: 1.0625rem; padding: 0 12px; }
+  /* Kicker and tip are redundant here (segments show the possession); keep them for screen readers */
+  #trackNo, #tip { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; margin: 0; }
+  #promptText { font-size: clamp(1.375rem, 3.2vw, 1.75rem); max-width: 40ch; }
+  #play .pitch-wrap { width: min(600px, 64vw); margin-top: 12px; gap: 4px; }
+  #play .pitch { filter: drop-shadow(0 6px 16px rgba(0, 0, 0, .14)); }
+  #play .pitch g[stroke-width] { stroke-width: 1.5; }
+  #play .pitch-text { font-size: .8125rem; }
+  #play .composer-area {
+    width: min(760px, 100%); padding: 4px 0 calc(8px + env(safe-area-inset-bottom, 0px));
+    grid-template-columns: minmax(0, 520px) auto; grid-template-areas: "fb fb" "form pass";
+    column-gap: 12px; row-gap: 4px; justify-content: center; align-items: center;
+  }
+  #feedback { grid-area: fb; min-height: 1.2em; }
+  #guessForm { grid-area: form; }
+  #play .pass-row { grid-area: pass; }
+  #play .composer { border-radius: 26px; padding: 4px 4px 4px 18px; }
+  #play .composer input { height: 42px; font-size: 1.0625rem; }
+  #play .send { width: 44px; height: 44px; }
+  /* Lower third goes three-up so it covers less of the pitch: reveal | analysis | status + next */
+  #revealSheet {
+    padding: 14px 20px; row-gap: 8px; column-gap: 20px;
+    bottom: calc(10px + env(safe-area-inset-bottom, 0px));
+    grid-template-columns: minmax(0, 5fr) minmax(0, 5fr) minmax(0, 3fr);
+  }
+  #revealSheet .reveal-icon { width: 48px; height: 48px; border-radius: 12px; }
+  #revealSheet .reveal-icon svg { width: 26px; height: 26px; }
+  #revealSheet .reveal-answer, #revealSheet .reveal-pts { font-size: 1.5rem; }
+  #revealSheet .group { grid-area: 1 / 2 / 4 / 3; }
+  #revealStatus { grid-area: 1 / 3; align-self: start; }
+  #nextBtn { grid-area: 2 / 3 / 4 / 4; }
+  #helpSheet, #quitSheet { max-height: calc(100% - 24px); }
+}
+
+@media (min-width: 800px) and (prefers-reduced-motion: reduce) {
+  #revealSheet, #quitSheet, #helpSheet { transition: none; }
+}
 </style>
 </head>
 <body>
@@ -508,6 +738,7 @@ svg.i { width: 1.25em; height: 1.25em; flex: none; }
     </header>
 
     <div class="content gutter">
+      <div class="col col-a">
       <div class="hero">
         <button class="hero-ball spin-slow" id="heroPlay" type="button" aria-label="Kick off a match">
           <span class="ball"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#i-ball"/></svg></span>
@@ -520,13 +751,16 @@ svg.i { width: 1.25em; height: 1.25em; flex: none; }
 
       <h3 class="section-h">Daily match</h3>
       <div class="group" id="dailyGroup"></div>
+      </div>
 
+      <div class="col col-b">
       <h3 class="section-h">Your season</h3>
       <div class="group" id="progressGroup"></div>
 
       <h3 class="section-h">How far does your answer carry the ball?</h3>
       <div class="group" id="tierGroup"></div>
       <p class="footnote group-foot">Example prompt: “Name a fruit.” Reach 100 yards and you score. Wrong guesses cost 2 seconds, so keep going.</p>
+      </div>
 
       <p class="footnote group-foot" style="margin-top:18px">Top Bins is an independent game. Answer lists are written by hand, so if a right answer gets rejected, it's missing from the list rather than wrong. Progress is saved only in this browser. <a href="privacy.html" style="color:var(--tint)">Privacy</a></p>
     </div>
@@ -600,6 +834,7 @@ svg.i { width: 1.25em; height: 1.25em; flex: none; }
     </header>
 
     <div class="content gutter">
+      <div class="col col-a">
       <div class="results-hero">
         <div class="bars" id="bars" aria-hidden="true"></div>
         <div class="total num" id="total">0</div>
@@ -610,9 +845,12 @@ svg.i { width: 1.25em; height: 1.25em; flex: none; }
 
       <h3 class="section-h">Rank</h3>
       <div class="group" id="resultRank"></div>
+      </div>
 
+      <div class="col col-b">
       <h3 class="section-h">Match report</h3>
       <div class="group" id="trackList"></div>
+      </div>
 
       <!-- AD SLOT: put a display ad unit here once your ad network approves the site, then remove "hidden". -->
       <div class="ad-slot" id="adSlot" hidden></div>
