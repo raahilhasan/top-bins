@@ -444,7 +444,7 @@ svg.i { width: 1.25em; height: 1.25em; flex: none; }
 /* ---------- Toast & confetti ---------- */
 .toast {
   position: fixed; z-index: 30; left: 50%; top: calc(14px + env(safe-area-inset-top, 0px));
-  transform: translate(-50%, -150%);
+  transform: translate(-50%, calc(-100% - 24px));
   padding: 10px 18px; border-radius: 999px;
   background: var(--card); color: var(--label); box-shadow: var(--shadow);
   font-size: .9375rem; font-weight: 600;
@@ -475,15 +475,13 @@ svg.i { width: 1.25em; height: 1.25em; flex: none; }
 @media (min-width: 800px) {
   /* ---------- Shell ---------- */
   .app { max-width: none; }
-  /* The empty toast's bottom edge peeks into the viewport while hidden; park it fully off-screen. */
-  .toast { transform: translate(-50%, calc(-100% - 24px)); }
 
   /* ---------- Home + Results: full-width bars, capped rows ---------- */
   #home .nav, #results .nav {
     padding-left: max(24px, env(safe-area-inset-left, 0px));
     padding-right: max(24px, env(safe-area-inset-right, 0px));
   }
-  #home .nav-row, #results .nav-row { width: min(1120px, 100%); margin-inline: auto; min-height: 60px; }
+  #home .nav-row, #results .nav-row { width: min(1072px, 100%); margin-inline: auto; min-height: 60px; }
   #home .wordmark { font-size: 2.25rem; }
   #home .wordmark svg { width: 36px; height: 36px; }
 
@@ -509,8 +507,6 @@ svg.i { width: 1.25em; height: 1.25em; flex: none; }
   .hero .subhead { font-size: 1.0625rem; max-width: 36ch; }
   .results-hero { padding: 28px 24px; border-radius: 24px; }
   .bars { max-width: 360px; height: 110px; }
-  /* Ladder rows read as a table on wide screens: name | example | yards */
-  #tierGroup .row-main { grid-template-columns: 8.5em minmax(0, 1fr); column-gap: 12px; align-items: baseline; }
 
   /* ---------- Dock: a floating action bar, bottom centre ---------- */
   #home .dock, #results .dock {
@@ -577,7 +573,7 @@ svg.i { width: 1.25em; height: 1.25em; flex: none; }
   #play .send { width: 48px; height: 48px; }
 
   /* Reveal floats ("+75 yds", "GOAL!") rise from the centre of the stage, not from the small clock. */
-  #play .float { position: fixed; left: 50%; top: 50%; z-index: 3; font-size: calc(var(--fs, 1.8rem) * 1.6); }
+  #play .float { position: fixed; left: 50%; top: 50%; z-index: 3; font-size: calc(var(--fs, 1.8rem) * 1.6); text-shadow: 0 0 2px var(--bg), 0 0 10px var(--bg), 0 2px 10px rgba(0, 0, 0, .35); }
   #play .float.goal { font-size: 4.5rem; }
 
   /* Pointer hover states */
@@ -622,7 +618,7 @@ svg.i { width: 1.25em; height: 1.25em; flex: none; }
   }
   #revealSheet.open { transform: translate(-50%, 0); }
   #revealTop { grid-area: 1 / 1; padding-top: 0; }
-  #revealTop + div { grid-area: 2 / 1; }
+  #revealTop + div { grid-area: 2 / 1; align-self: end; }
   #revealSheet .ladder-labels { grid-area: 3 / 1; }
   #revealStatus { grid-area: 4 / 1; align-self: end; }
   #revealSheet .group { grid-area: 1 / 2 / 4 / 3; }
@@ -631,12 +627,18 @@ svg.i { width: 1.25em; height: 1.25em; flex: none; }
 
   /* While the lower third is up, dim only the lower stage so the pitch stays readable.
      Browsers without :has() keep the full-screen dim. */
-  body:has(#revealSheet.open) .backdrop { background: linear-gradient(to top, var(--backdrop) 25%, transparent 70%); }
+  body:has(#revealSheet.open) .backdrop { background: linear-gradient(to top, var(--backdrop) 25%, color-mix(in srgb, var(--backdrop) 35%, transparent) 70%); }
+}
+
+/* Ladder rows read as a table once the example column has room (below this, the stacked layout stays). */
+@media (min-width: 1000px) {
+  #tierGroup .row-main { grid-template-columns: 8.5em minmax(0, 1fr); column-gap: 12px; align-items: baseline; }
 }
 
 /* Short desktop windows (a 1366x768 laptop shows about 650px): keep the stage on one screen. */
 @media (min-width: 800px) and (max-height: 720px) {
-  #play { grid-template-rows: 72px minmax(10px, 1fr) auto auto auto auto minmax(10px, 1fr) auto; }
+  #play { grid-template-rows: 72px minmax(6px, 1fr) auto auto auto auto minmax(6px, 1fr) auto; }
+  #tip { margin-top: 10px; }
   #play .deck { width: 60px; }
   #play .secs { font-size: 1.25rem; }
   #trackNo { margin-bottom: 6px; }
