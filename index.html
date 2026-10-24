@@ -25,29 +25,32 @@
 /* Layout: an iOS-style single column. Large-title nav, inset grouped sections, primary action docked in the thumb zone, answers revealed in a bottom sheet. */
 :root {
   /* Apple semantic colors (light) with a pitch-green tint */
-  --bg: #f2f2f7;
-  --card: #ffffff;
-  --fill: rgba(118, 118, 128, .12);
-  --fill-2: rgba(118, 118, 128, .2);
-  --label: #000000;
-  --label-2: rgba(60, 60, 67, .6);
-  --label-3: rgba(60, 60, 67, .3);
-  --sep: rgba(60, 60, 67, .2);
-  --material: rgba(242, 242, 247, .78);
-  --backdrop: rgba(0, 0, 0, .3);
-  --tint: #1f7a37;
+  --bg: #e8eef4;
+  --card: rgba(255, 255, 255, .78);
+  --fill: rgba(90, 110, 135, .12);
+  --fill-2: rgba(90, 110, 135, .2);
+  --label: #1d2733;
+  --label-2: rgba(29, 39, 51, .62);
+  --label-3: rgba(29, 39, 51, .32);
+  --sep: rgba(29, 39, 51, .14);
+  --material: rgba(232, 238, 244, .72);
+  --backdrop: rgba(20, 35, 55, .3);
+  --tint: #2a8f4e;
   --on-tint: #ffffff;
-  --tint-soft: rgba(31, 122, 55, .12);
-  --red: #ff3b30;
-  --red-text: #d70015;
-  --grass: #2f9e44;
-  --grass-2: #2b9140;
-  --chalk: rgba(255, 255, 255, .7);
-  --ball-ink: #111214;
+  --tint-soft: rgba(42, 143, 78, .14);
+  --red: #ff4d45;
+  --red-text: #c9302c;
+  --grass: #4aa864;
+  --grass-2: #439c5c;
+  --chalk: rgba(255, 255, 255, .75);
+  --ball-ink: #1a1c22;
+  /* Stadium atmosphere behind the cards: an afternoon kickoff */
+  --sky-1: #cfe3f5; --sky-2: #e4edf6; --cloud: rgba(255, 255, 255, .7);
+  --stand: rgba(70, 95, 125, .16); --stand-2: rgba(70, 95, 125, .3); --light: rgba(255, 250, 225, .9);
   /* Play ladder: gray, blue, purple, orange, gold */
   --t0: #8e8e93; --t1: #007aff; --t2: #af52de; --t3: #ff9500; --t4: #ffcc00;
   --t0-text: #6c6c70; --t1-text: #0040dd; --t2-text: #8944ab; --t3-text: #c25400; --t4-text: #a05a00;
-  --shadow: 0 1px 2px rgba(0,0,0,.04), 0 8px 24px rgba(0,0,0,.08);
+  --shadow: 0 1px 2px rgba(20, 40, 60, .04), 0 10px 30px rgba(20, 40, 60, .1);
 
   --font: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --font-rounded: ui-rounded, "SF Pro Rounded", "Nunito", -apple-system, system-ui, sans-serif;
@@ -56,28 +59,34 @@
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --bg: #000000; --card: #1c1c1e; --fill: rgba(118,118,128,.24); --fill-2: rgba(118,118,128,.32);
-    --label: #ffffff; --label-2: rgba(235,235,245,.6); --label-3: rgba(235,235,245,.3); --sep: rgba(84,84,88,.6);
-    --material: rgba(22,22,24,.78); --backdrop: rgba(0,0,0,.5);
-    --tint: #30d158; --on-tint: #00210b; --tint-soft: rgba(48,209,88,.18);
-    --red: #ff453a; --red-text: #ff6961;
-    --grass: #1e7a30; --grass-2: #1b6f2b; --chalk: rgba(255,255,255,.6); --ball-ink: #111214;
-    --t0: #98989d; --t1: #0a84ff; --t2: #bf5af2; --t3: #ff9f0a; --t4: #ffd60a;
-    --t0-text: #aeaeb2; --t1-text: #409cff; --t2-text: #da8fff; --t3-text: #ffb340; --t4-text: #ffd60a;
-    --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.4);
+    --bg: #101a2a; --card: rgba(28, 40, 60, .78); --fill: rgba(140,160,190,.16); --fill-2: rgba(140,160,190,.26);
+    --label: #e6edf5; --label-2: rgba(230,237,245,.64); --label-3: rgba(230,237,245,.34); --sep: rgba(170,190,220,.18);
+    --material: rgba(16,26,42,.72); --backdrop: rgba(5,10,20,.5);
+    --tint: #4fd36c; --on-tint: #062a12; --tint-soft: rgba(79,211,108,.18);
+    --red: #ff5c52; --red-text: #ff8a80;
+    --grass: #2c8a46; --grass-2: #27803f; --chalk: rgba(255,255,255,.62); --ball-ink: #1a1c22;
+    --t0: #a0a6b0; --t1: #4a9bff; --t2: #c77dff; --t3: #ffac3a; --t4: #ffd84a;
+    --t0-text: #b8bec8; --t1-text: #7cb6ff; --t2-text: #dba6ff; --t3-text: #ffc266; --t4-text: #ffe07a;
+    /* Floodlit evening */
+    --sky-1: #1a2b45; --sky-2: #121f33; --cloud: rgba(255,255,255,.06);
+    --stand: rgba(120,150,190,.13); --stand-2: rgba(120,150,190,.22); --light: rgba(255,244,200,.85);
+    --shadow: 0 1px 2px rgba(0,0,0,.25), 0 10px 30px rgba(0,0,0,.35);
     color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
-  --bg: #000000; --card: #1c1c1e; --fill: rgba(118,118,128,.24); --fill-2: rgba(118,118,128,.32);
-  --label: #ffffff; --label-2: rgba(235,235,245,.6); --label-3: rgba(235,235,245,.3); --sep: rgba(84,84,88,.6);
-  --material: rgba(22,22,24,.78); --backdrop: rgba(0,0,0,.5);
-  --tint: #30d158; --on-tint: #00210b; --tint-soft: rgba(48,209,88,.18);
-  --red: #ff453a; --red-text: #ff6961;
-  --grass: #1e7a30; --grass-2: #1b6f2b; --chalk: rgba(255,255,255,.6); --ball-ink: #111214;
-  --t0: #98989d; --t1: #0a84ff; --t2: #bf5af2; --t3: #ff9f0a; --t4: #ffd60a;
-  --t0-text: #aeaeb2; --t1-text: #409cff; --t2-text: #da8fff; --t3-text: #ffb340; --t4-text: #ffd60a;
-  --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.4);
+  --bg: #101a2a; --card: rgba(28, 40, 60, .78); --fill: rgba(140,160,190,.16); --fill-2: rgba(140,160,190,.26);
+  --label: #e6edf5; --label-2: rgba(230,237,245,.64); --label-3: rgba(230,237,245,.34); --sep: rgba(170,190,220,.18);
+  --material: rgba(16,26,42,.72); --backdrop: rgba(5,10,20,.5);
+  --tint: #4fd36c; --on-tint: #062a12; --tint-soft: rgba(79,211,108,.18);
+  --red: #ff5c52; --red-text: #ff8a80;
+  --grass: #2c8a46; --grass-2: #27803f; --chalk: rgba(255,255,255,.62); --ball-ink: #1a1c22;
+  --t0: #a0a6b0; --t1: #4a9bff; --t2: #c77dff; --t3: #ffac3a; --t4: #ffd84a;
+  --t0-text: #b8bec8; --t1-text: #7cb6ff; --t2-text: #dba6ff; --t3-text: #ffc266; --t4-text: #ffe07a;
+  /* Floodlit evening */
+  --sky-1: #1a2b45; --sky-2: #121f33; --cloud: rgba(255,255,255,.06);
+  --stand: rgba(120,150,190,.13); --stand-2: rgba(120,150,190,.22); --light: rgba(255,244,200,.85);
+  --shadow: 0 1px 2px rgba(0,0,0,.25), 0 10px 30px rgba(0,0,0,.35);
   color-scheme: dark;
 }
 
@@ -155,7 +164,7 @@ svg.i { width: 1.25em; height: 1.25em; flex: none; }
   text-transform: uppercase; letter-spacing: .02em;
   color: var(--label-2);
 }
-.group { background: var(--card); border-radius: var(--radius); overflow: hidden; }
+.group { background: var(--card); border-radius: var(--radius); overflow: hidden; -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); }
 .row {
   display: flex; align-items: center; gap: 12px;
   min-height: 44px; padding: 11px 16px;
@@ -233,6 +242,7 @@ svg.i { width: 1.25em; height: 1.25em; flex: none; }
 /* ---------- Home ---------- */
 .hero {
   background: var(--card); border-radius: 20px;
+  -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px);
   padding: 22px 20px 20px;
   display: grid; justify-items: center; gap: 10px; text-align: center;
   box-shadow: var(--shadow);
@@ -301,12 +311,35 @@ svg.i { width: 1.25em; height: 1.25em; flex: none; }
 .tip { margin: 0; max-width: 32ch; }
 
 .pitch-wrap { width: 100%; max-width: 420px; display: grid; gap: 6px; margin-top: 6px; }
-.pitch { width: 100%; height: auto; display: block; border-radius: 8px; box-shadow: var(--shadow); }
-#pitchBall { transition: transform .75s cubic-bezier(.2, .8, .2, 1); }
+.pitch { width: 100%; height: auto; display: block; border-radius: 8px; box-shadow: var(--shadow); overflow: visible; }
+#pitchBall { transition: transform var(--dur, .75s) cubic-bezier(.2, .8, .2, 1); }
 #pitchBall.jump { transition: none; }
-#goalNet { transition: opacity .2s; }
-#goalNet.hit { animation: netHit .7s ease-out; }
+#pitchBall.back { transition-timing-function: cubic-bezier(.45, 0, .55, 1); }
+/* The ball rolls as it travels: more yards, more turns */
+#pitchBall use { transform-box: fill-box; transform-origin: center; }
+#pitchBall.roll use { animation: roll var(--dur, .75s) cubic-bezier(.2, .8, .2, 1) both; }
+@keyframes roll { to { transform: rotate(var(--turns, 720deg)); } }
+#pitchTrail { opacity: 0; stroke: var(--chalk); stroke-width: 3; stroke-linecap: round; stroke-dasharray: 3 7; }
+#pitchTrail.show { animation: trail 1s ease-out forwards; }
+@keyframes trail { 0% { opacity: 0; } 25% { opacity: .9; } 100% { opacity: 0; } }
+#goalNet { transition: opacity .2s; transform-box: fill-box; transform-origin: right center; }
+#goalNet.hit { animation: netHit .7s ease-out, netWobble .7s cubic-bezier(.3, 1.4, .5, 1); }
 @keyframes netHit { 0% { opacity: .9; } 20% { opacity: 1; filter: drop-shadow(0 0 6px #fff); } 100% { opacity: .9; } }
+@keyframes netWobble { 0% { transform: scaleX(1); } 30% { transform: scaleX(2.2); } 60% { transform: scaleX(.8); } 100% { transform: scaleX(1); } }
+.pitch-wrap { transition: transform .55s cubic-bezier(.2, .8, .2, 1), filter .4s ease; transform-origin: 88% 50%; }
+.pitch-wrap.zoom { transform: scale(1.07); }
+.pitch-wrap.sad { filter: saturate(.55) brightness(.92); }
+/* Screen shake, scaled to how rare the answer was */
+#play.quake { animation: quake .4s cubic-bezier(.36, .07, .19, .97) both; }
+#play.quake-1 { --q: 2px; } #play.quake-2 { --q: 4px; } #play.quake-3 { --q: 7px; } #play.quake-4 { --q: 11px; }
+@keyframes quake {
+  10%, 90% { transform: translate(calc(var(--q, 4px) * -1), 0); }
+  20%, 80% { transform: translate(var(--q, 4px), calc(var(--q, 4px) * -.4)); }
+  30%, 50%, 70% { transform: translate(calc(var(--q, 4px) * -1), var(--q, 4px)); }
+  40%, 60% { transform: translate(var(--q, 4px), calc(var(--q, 4px) * .4)); }
+}
+.prompt.in { animation: rise .4s cubic-bezier(.2, .8, .2, 1) both; }
+@keyframes rise { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
 .pitch-text { margin: 0; display: flex; justify-content: space-between; gap: 8px; }
 
 .composer-area { display: grid; gap: 8px; padding-top: 6px; padding-bottom: calc(10px + env(safe-area-inset-bottom, 0px)); }
@@ -409,6 +442,7 @@ svg.i { width: 1.25em; height: 1.25em; flex: none; }
 /* ---------- Results ---------- */
 .results-hero {
   background: var(--card); border-radius: 20px; box-shadow: var(--shadow);
+  -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px);
   padding: 20px; display: grid; gap: 12px; text-align: center; justify-items: center;
   margin-top: 6px;
 }
@@ -441,6 +475,36 @@ svg.i { width: 1.25em; height: 1.25em; flex: none; }
 .daily-streak { display: inline-flex; align-items: center; gap: 3px; font-weight: 700; color: var(--tint); font-size: .9375rem; white-space: nowrap; font-variant-numeric: tabular-nums; }
 .daily-streak .i { width: 16px; height: 16px; }
 
+/* ---------- Stadium atmosphere (fixed behind everything) ---------- */
+.stadium { position: fixed; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; }
+.sky { position: absolute; inset: 0; background: linear-gradient(to bottom, var(--sky-1), var(--sky-2) 55%, var(--bg)); }
+.cloud { position: absolute; top: 9%; left: -30%; width: 34vw; min-width: 220px; height: 9vw; min-height: 60px; border-radius: 999px; background: var(--cloud); filter: blur(22px); animation: drift 110s linear infinite; }
+.cloud.c2 { top: 17%; width: 24vw; min-width: 160px; height: 6vw; min-height: 44px; animation-duration: 150s; animation-delay: -60s; }
+.cloud.c3 { top: 4%; width: 18vw; min-width: 120px; height: 5vw; min-height: 36px; animation-duration: 130s; animation-delay: -110s; }
+@keyframes drift { from { transform: translateX(0); } to { transform: translateX(170vw); } }
+.stands { position: absolute; left: 0; right: 0; bottom: 0; width: 100%; height: min(34vh, 340px); }
+.stands .crowd { transform-box: fill-box; transform-origin: center bottom; }
+.stadium.roar .crowd { animation: bounce .32s ease-in-out 4 alternate; }
+@keyframes bounce { to { transform: translateY(-4px); } }
+.beam { position: absolute; bottom: 14vh; width: 44vw; height: 70vh; opacity: .22; background: radial-gradient(ellipse at top, var(--light) 0%, transparent 62%); mix-blend-mode: screen; animation: glow 7s ease-in-out infinite alternate; }
+.beam.b1 { left: -8vw; } .beam.b2 { right: -8vw; animation-delay: -3.5s; }
+@keyframes glow { from { opacity: .16; } to { opacity: .3; } }
+.flashes i { position: absolute; width: 5px; height: 5px; border-radius: 50%; background: #fff; box-shadow: 0 0 10px 3px rgba(255,255,255,.8); opacity: 0; animation: camflash .45s ease-out var(--d, 0s) forwards; }
+@keyframes camflash { 0% { opacity: 0; transform: scale(.4); } 30% { opacity: 1; transform: scale(1.3); } 100% { opacity: 0; transform: scale(.8); } }
+
+/* Wordmark letters float and shimmer with a faint colour split */
+.wordmark .ltr { display: inline-block; animation: floaty 4.5s ease-in-out infinite, shimmer 6s ease-in-out infinite; animation-delay: calc(var(--i) * .13s), calc(var(--i) * .2s); text-shadow: 1px 0 rgba(255, 90, 130, .28), -1px 0 rgba(60, 200, 255, .28); }
+.wordmark .ltr.sp { width: .3em; }
+@keyframes floaty { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-3px); } }
+@keyframes shimmer { 0%, 100% { opacity: 1; } 50% { opacity: .78; } }
+.hero .title2, .hero .subhead, .hero .nudge { animation: rise .6s cubic-bezier(.2, .8, .2, 1) both; }
+.hero .subhead { animation-delay: .1s; } .hero .nudge { animation-delay: .2s; }
+@media (hover: hover) {
+  .btn-filled, .hero-ball { transition: transform .15s ease, box-shadow .15s ease, filter .15s ease; }
+  .btn-filled:hover { transform: translateY(-1px); box-shadow: 0 6px 18px color-mix(in srgb, var(--tint) 35%, transparent); }
+  .group .row:has(.btn):hover { background: color-mix(in srgb, var(--fill) 50%, transparent); }
+}
+
 /* ---------- Toast & confetti ---------- */
 .toast {
   position: fixed; z-index: 30; left: 50%; top: calc(14px + env(safe-area-inset-top, 0px));
@@ -459,9 +523,12 @@ svg.i { width: 1.25em; height: 1.25em; flex: none; }
 
 @media (prefers-reduced-motion: reduce) {
   .spin .ball, .spin-slow .ball, .deck.low .secs, .shake, .reveal-icon.pop,
-  .deck.halt .ball, .deck.settle, .deck.pop-s, .deck.pop-l, .ripple, .float, #flash.go, .reveal-pts.pop, #goalNet.hit { animation: none; }
+  .deck.halt .ball, .deck.settle, .deck.pop-s, .deck.pop-l, .ripple, .float, #flash.go, .reveal-pts.pop, #goalNet.hit,
+  #pitchBall.roll use, #pitchTrail.show, #play.quake, .prompt.in, .cloud, .stadium.roar .crowd, .beam, .flashes i,
+  .wordmark .ltr, .hero .title2, .hero .subhead, .hero .nudge { animation: none; }
   .deck.glow { filter: none; }
-  .sheet, .backdrop, .toast, .bars span, .ring .bar, .btn, .hero-ball, #pitchBall { transition: none; }
+  .pitch-wrap.zoom { transform: none; }
+  .sheet, .backdrop, .toast, .bars span, .ring .bar, .btn, .hero-ball, #pitchBall, .pitch-wrap { transition: none; }
 }
 
 /* ---------- Wide screens (landscape / desktop): the broadcast stage ----------
@@ -726,6 +793,21 @@ svg.i { width: 1.25em; height: 1.25em; flex: none; }
   <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 7v5l3.5 2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
 </svg>
 
+<div class="stadium" id="stadium" aria-hidden="true">
+  <div class="sky"></div>
+  <div class="cloud c1"></div><div class="cloud c2"></div><div class="cloud c3"></div>
+  <svg class="stands" viewBox="0 0 1200 340" preserveAspectRatio="none">
+    <defs><pattern id="crowd" width="9" height="9" patternUnits="userSpaceOnUse"><circle cx="4.5" cy="4.5" r="2.2" fill="var(--stand-2)"/></pattern></defs>
+    <path d="M0 150 L1200 110 L1200 340 L0 340 Z" fill="var(--stand)"/>
+    <path class="crowd" d="M0 168 L1200 128 L1200 300 L0 300 Z" fill="url(#crowd)"/>
+    <rect x="0" y="300" width="1200" height="40" fill="var(--grass)" opacity=".5"/>
+    <g stroke="var(--label-3)" stroke-width="4"><line x1="140" y1="30" x2="140" y2="156"/><line x1="1060" y1="30" x2="1060" y2="114"/></g>
+    <g fill="var(--light)"><rect x="104" y="12" width="72" height="20" rx="5"/><rect x="1024" y="12" width="72" height="20" rx="5"/></g>
+  </svg>
+  <div class="beam b1"></div><div class="beam b2"></div>
+  <div class="flashes" id="flashes"></div>
+</div>
+
 <div class="app">
   <!-- ================= HOME ================= -->
   <section id="home" class="screen">
@@ -806,6 +888,7 @@ svg.i { width: 1.25em; height: 1.25em; flex: none; }
               <rect x="305" y="23" width="14" height="18"/>
             </g>
             <rect id="goalNet" x="313" y="21" width="6" height="22" fill="#fff" opacity=".9"/>
+            <line id="pitchTrail" x1="14" y1="32" x2="14" y2="32"/>
             <g id="pitchBall"><use href="#i-ball" x="6" y="24" width="16" height="16"/></g>
           </g>
         </svg>
@@ -1278,6 +1361,38 @@ svg.i { width: 1.25em; height: 1.25em; flex: none; }
     b.style.transform = `translateX(${(Math.min(PITCH, pos) / PITCH) * 296}px)`;
     if (jump) requestAnimationFrame(() => b.classList.remove("jump"));
   }
+  /* Krillion-style travel: the ball rolls along a chalk trail, the stage shakes in proportion to the carry. */
+  const ballX = (pos) => 14 + (Math.min(PITCH, pos) / PITCH) * 296;
+  function travelBall(from, to, tier, back) {
+    const b = $("pitchBall"), dist = Math.abs(to - from);
+    const dur = reduceMotion ? 0 : (back ? 0.9 : 0.45 + 0.6 * (dist / PITCH));
+    b.style.setProperty("--dur", `${dur}s`);
+    b.style.setProperty("--turns", `${Math.round((back ? -1 : 1) * (360 + 540 * (dist / PITCH)))}deg`);
+    b.classList.toggle("back", !!back);
+    b.classList.remove("roll"); void b.getBoundingClientRect(); b.classList.add("roll");
+    const t = $("pitchTrail");
+    t.setAttribute("x1", ballX(from)); t.setAttribute("x2", ballX(Math.min(PITCH, to)));
+    t.classList.remove("show"); void t.getBoundingClientRect(); if (!back) t.classList.add("show");
+    setBall(to);
+    setTimeout(() => { b.classList.remove("roll", "back"); b.style.removeProperty("--dur"); }, dur * 1000 + 50);
+    if (tier >= 1) quake(back ? 1 : tier);
+  }
+  function quake(level) {
+    const el = $("play");
+    el.classList.remove("quake", "quake-1", "quake-2", "quake-3", "quake-4"); void el.offsetWidth;
+    el.classList.add("quake", `quake-${Math.min(4, Math.max(1, level))}`);
+    setTimeout(() => el.classList.remove("quake", `quake-${Math.min(4, Math.max(1, level))}`), 450);
+  }
+  function cameraFlashes(n) {
+    if (reduceMotion) return;
+    const box = $("flashes"); box.innerHTML = "";
+    for (let i = 0; i < n; i++) {
+      const f = document.createElement("i");
+      f.style.left = `${Math.random() * 100}%`; f.style.bottom = `${8 + Math.random() * 22}vh`; f.style.setProperty("--d", `${Math.random() * 1.2}s`);
+      box.appendChild(f);
+    }
+    setTimeout(() => { box.innerHTML = ""; }, 2000);
+  }
   function describePos(pos) {
     if (pos <= 0) return "Own goal line";
     if (pos < 35) return `Own half · ${pos} yds`;
@@ -1335,7 +1450,8 @@ svg.i { width: 1.25em; height: 1.25em; flex: none; }
     G.phase = "play";
     G.left = ROUND_SECONDS;
     $("trackNo").textContent = (G.mode === "daily" ? `Daily #${G.n} · ` : "") + `Possession ${G.i + 1} of ${ROUND_SIZE}`;
-    $("promptText").textContent = p.text;
+    const pt = $("promptText"); pt.textContent = p.text; pt.classList.remove("in"); void pt.offsetWidth; pt.classList.add("in");
+    document.querySelector(".pitch-wrap").classList.remove("zoom", "sad");
     $("tip").hidden = !(store.rounds === 0 && G.i === 0);
     feedback.textContent = "";
     $("guessForm").classList.remove("wrong");
@@ -1492,6 +1608,10 @@ svg.i { width: 1.25em; height: 1.25em; flex: none; }
   function celebrateGoal() {
     const net = $("goalNet");
     net.classList.remove("hit"); void net.getBoundingClientRect(); net.classList.add("hit");
+    document.querySelector(".pitch-wrap").classList.add("zoom");
+    const st = $("stadium"); st.classList.remove("roar"); void st.offsetWidth; st.classList.add("roar");
+    cameraFlashes(26);
+    quake(4);
     floatText("GOAL!", "goal");
     flash(.5, "goal");
     confetti([cssVar("--tint"), cssVar("--t4"), "#ffffff", cssVar("--t1")], 180);
@@ -1512,7 +1632,7 @@ svg.i { width: 1.25em; height: 1.25em; flex: none; }
 
     // Move the ball. Rarer answer = longer carry. A miss gives up half your position.
     const pts = ans ? TIERS[ans.tier].pts : 0;
-    const before = G.total;
+    const before = G.total, posBefore = G.pos;
     let goal = false, landing;
     if (ans) {
       const n = G.pos + pts;
@@ -1535,7 +1655,8 @@ svg.i { width: 1.25em; height: 1.25em; flex: none; }
       // Quiet miss: dim, ball drifts back, no drama, move on quickly.
       deck.className = "deck revealed tier-none dim";
       secsEl.textContent = "0";
-      setBall(landing);
+      const pw = document.querySelector(".pitch-wrap"); pw.classList.add("sad"); setTimeout(() => pw.classList.remove("sad"), 1100);
+      travelBall(posBefore, landing, 0, true);
       renderPitchText(G.pos);
       haptic([40, 60, 40]);
       setTimeout(() => showReveal(token, -1), how === "timeout" ? 500 : 300);
@@ -1557,7 +1678,7 @@ svg.i { width: 1.25em; height: 1.25em; flex: none; }
       if (fx.flash) flash(fx.flash, `tier-${ans.tier}`);
       if (fx.confetti) confetti([cssVar(`--t${ans.tier}`), cssVar("--tint"), cssVar("--t1"), "#ffffff"], fx.confetti);
       haptic(fx.haptic);
-      setBall(landing);
+      travelBall(posBefore, landing, ans.tier);
       if (!goal) {
         renderPitchText(G.pos);
         setTimeout(() => showReveal(token, ans.tier), fx.sheet);
@@ -1571,6 +1692,7 @@ svg.i { width: 1.25em; height: 1.25em; flex: none; }
         renderPitchText(G.pos);
         setTimeout(() => {
           if (!G || token !== revealToken) return;
+          document.querySelector(".pitch-wrap").classList.remove("zoom");
           setBall(G.pos, true);
           showReveal(token, 4);
         }, GOAL_HOLD);
@@ -1755,6 +1877,14 @@ svg.i { width: 1.25em; height: 1.25em; flex: none; }
     else if (openSheetEl === $("revealSheet")) nextTrack();
   });
 
+  // Wordmark letters animate individually; the h1 keeps its plain text for assistive tech.
+  (() => {
+    const h = document.querySelector(".wordmark"); const text = h.textContent.trim();
+    h.setAttribute("aria-label", text);
+    const svg = h.querySelector("svg");
+    h.textContent = ""; h.appendChild(svg);
+    [...text].forEach((ch, i) => { const sp = document.createElement("span"); sp.className = "ltr" + (ch === " " ? " sp" : ""); sp.textContent = ch === " " ? "\u00a0" : ch; sp.style.setProperty("--i", i); sp.setAttribute("aria-hidden", "true"); h.appendChild(sp); });
+  })();
   renderHome();
 })();
 </script>
