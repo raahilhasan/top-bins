@@ -25,32 +25,33 @@
 /* Layout: an iOS-style single column. Large-title nav, inset grouped sections, primary action docked in the thumb zone, answers revealed in a bottom sheet. */
 :root {
   /* Apple semantic colors (light) with a pitch-green tint */
-  --bg: #e8eef4;
-  --card: rgba(255, 255, 255, .78);
-  --fill: rgba(90, 110, 135, .12);
-  --fill-2: rgba(90, 110, 135, .2);
-  --label: #1d2733;
-  --label-2: rgba(29, 39, 51, .62);
-  --label-3: rgba(29, 39, 51, .32);
-  --sep: rgba(29, 39, 51, .14);
-  --material: rgba(232, 238, 244, .72);
-  --backdrop: rgba(20, 35, 55, .3);
-  --tint: #2a8f4e;
+  --bg: #f2eee6;
+  --card: rgba(255, 252, 246, .8);
+  --fill: rgba(100, 95, 80, .12);
+  --fill-2: rgba(100, 95, 80, .2);
+  --label: #262a24;
+  --label-2: rgba(38, 42, 36, .62);
+  --label-3: rgba(38, 42, 36, .32);
+  --sep: rgba(38, 42, 36, .14);
+  --material: rgba(242, 238, 230, .74);
+  --backdrop: rgba(40, 35, 25, .3);
+  --tint: #2f8a4a;
   --on-tint: #ffffff;
-  --tint-soft: rgba(42, 143, 78, .14);
+  --tint-soft: rgba(47, 138, 74, .14);
   --red: #ff4d45;
   --red-text: #c9302c;
-  --grass: #4aa864;
-  --grass-2: #439c5c;
+  --grass: #4ea569;
+  --grass-2: #47995f;
   --chalk: rgba(255, 255, 255, .75);
   --ball-ink: #1a1c22;
-  /* Stadium atmosphere behind the cards: an afternoon kickoff */
-  --sky-1: #cfe3f5; --sky-2: #e4edf6; --cloud: rgba(255, 255, 255, .7);
-  --stand: rgba(70, 95, 125, .16); --stand-2: rgba(70, 95, 125, .3); --light: rgba(255, 250, 225, .9);
+  /* Stadium atmosphere behind the cards: late-afternoon kickoff, warm dusk sky */
+  --sky-1: #f4cfa6; --sky-2: #efe3d2; --cloud: rgba(255, 255, 255, .75);
+  --stand: rgba(110, 95, 80, .22); --stand-2: rgba(110, 95, 80, .36); --light: rgba(255, 246, 214, .95);
+  --fan-1: #d9534f; --fan-2: #f0c75e; --fan-3: #4b6fb3; --fan-4: #efe6d6; --board: #2f8a4a;
   /* Play ladder: gray, blue, purple, orange, gold */
   --t0: #8e8e93; --t1: #007aff; --t2: #af52de; --t3: #ff9500; --t4: #ffcc00;
   --t0-text: #6c6c70; --t1-text: #0040dd; --t2-text: #8944ab; --t3-text: #c25400; --t4-text: #a05a00;
-  --shadow: 0 1px 2px rgba(20, 40, 60, .04), 0 10px 30px rgba(20, 40, 60, .1);
+  --shadow: 0 1px 2px rgba(60, 50, 30, .05), 0 10px 30px rgba(60, 50, 30, .1);
 
   --font: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --font-rounded: ui-rounded, "SF Pro Rounded", "Nunito", -apple-system, system-ui, sans-serif;
@@ -59,33 +60,35 @@
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --bg: #101a2a; --card: rgba(28, 40, 60, .78); --fill: rgba(140,160,190,.16); --fill-2: rgba(140,160,190,.26);
-    --label: #e6edf5; --label-2: rgba(230,237,245,.64); --label-3: rgba(230,237,245,.34); --sep: rgba(170,190,220,.18);
-    --material: rgba(16,26,42,.72); --backdrop: rgba(5,10,20,.5);
-    --tint: #4fd36c; --on-tint: #062a12; --tint-soft: rgba(79,211,108,.18);
+    --bg: #0c1a13; --card: rgba(20, 42, 32, .8); --fill: rgba(140,180,160,.16); --fill-2: rgba(140,180,160,.26);
+    --label: #e9f0ea; --label-2: rgba(233,240,234,.64); --label-3: rgba(233,240,234,.34); --sep: rgba(170,210,190,.18);
+    --material: rgba(12,26,19,.72); --backdrop: rgba(0,10,5,.5);
+    --tint: #5ad17a; --on-tint: #06230f; --tint-soft: rgba(90,209,122,.18);
     --red: #ff5c52; --red-text: #ff8a80;
-    --grass: #2c8a46; --grass-2: #27803f; --chalk: rgba(255,255,255,.62); --ball-ink: #1a1c22;
+    --grass: #2f8f4b; --grass-2: #2a8343; --chalk: rgba(255,255,255,.62); --ball-ink: #1a1c22;
     --t0: #a0a6b0; --t1: #4a9bff; --t2: #c77dff; --t3: #ffac3a; --t4: #ffd84a;
     --t0-text: #b8bec8; --t1-text: #7cb6ff; --t2-text: #dba6ff; --t3-text: #ffc266; --t4-text: #ffe07a;
     /* Floodlit evening */
-    --sky-1: #1a2b45; --sky-2: #121f33; --cloud: rgba(255,255,255,.06);
-    --stand: rgba(120,150,190,.13); --stand-2: rgba(120,150,190,.22); --light: rgba(255,244,200,.85);
+    --sky-1: #26402f; --sky-2: #13261c; --cloud: rgba(255,255,255,.05);
+    --stand: rgba(150,190,170,.12); --stand-2: rgba(150,190,170,.2); --light: rgba(255,240,190,.9);
+    --fan-1: #c94e4a; --fan-2: #d8b24f; --fan-3: #4e7bc4; --fan-4: #c9d6cc; --board: #1f6b38;
     --shadow: 0 1px 2px rgba(0,0,0,.25), 0 10px 30px rgba(0,0,0,.35);
     color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
-  --bg: #101a2a; --card: rgba(28, 40, 60, .78); --fill: rgba(140,160,190,.16); --fill-2: rgba(140,160,190,.26);
-  --label: #e6edf5; --label-2: rgba(230,237,245,.64); --label-3: rgba(230,237,245,.34); --sep: rgba(170,190,220,.18);
-  --material: rgba(16,26,42,.72); --backdrop: rgba(5,10,20,.5);
-  --tint: #4fd36c; --on-tint: #062a12; --tint-soft: rgba(79,211,108,.18);
+  --bg: #0c1a13; --card: rgba(20, 42, 32, .8); --fill: rgba(140,180,160,.16); --fill-2: rgba(140,180,160,.26);
+  --label: #e9f0ea; --label-2: rgba(233,240,234,.64); --label-3: rgba(233,240,234,.34); --sep: rgba(170,210,190,.18);
+  --material: rgba(12,26,19,.72); --backdrop: rgba(0,10,5,.5);
+  --tint: #5ad17a; --on-tint: #06230f; --tint-soft: rgba(90,209,122,.18);
   --red: #ff5c52; --red-text: #ff8a80;
-  --grass: #2c8a46; --grass-2: #27803f; --chalk: rgba(255,255,255,.62); --ball-ink: #1a1c22;
+  --grass: #2f8f4b; --grass-2: #2a8343; --chalk: rgba(255,255,255,.62); --ball-ink: #1a1c22;
   --t0: #a0a6b0; --t1: #4a9bff; --t2: #c77dff; --t3: #ffac3a; --t4: #ffd84a;
   --t0-text: #b8bec8; --t1-text: #7cb6ff; --t2-text: #dba6ff; --t3-text: #ffc266; --t4-text: #ffe07a;
   /* Floodlit evening */
-  --sky-1: #1a2b45; --sky-2: #121f33; --cloud: rgba(255,255,255,.06);
-  --stand: rgba(120,150,190,.13); --stand-2: rgba(120,150,190,.22); --light: rgba(255,244,200,.85);
+  --sky-1: #26402f; --sky-2: #13261c; --cloud: rgba(255,255,255,.05);
+  --stand: rgba(150,190,170,.12); --stand-2: rgba(150,190,170,.2); --light: rgba(255,240,190,.9);
+  --fan-1: #c94e4a; --fan-2: #d8b24f; --fan-3: #4e7bc4; --fan-4: #c9d6cc; --board: #1f6b38;
   --shadow: 0 1px 2px rgba(0,0,0,.25), 0 10px 30px rgba(0,0,0,.35);
   color-scheme: dark;
 }
@@ -312,32 +315,12 @@ svg.i { width: 1.25em; height: 1.25em; flex: none; }
 
 .pitch-wrap { width: 100%; max-width: 420px; display: grid; gap: 6px; margin-top: 6px; }
 .pitch { width: 100%; height: auto; display: block; border-radius: 8px; box-shadow: var(--shadow); overflow: visible; }
-#pitchBall { transition: transform var(--dur, .75s) cubic-bezier(.2, .8, .2, 1); }
+#pitchBall { transition: transform .75s cubic-bezier(.2, .8, .2, 1); }
 #pitchBall.jump { transition: none; }
-#pitchBall.back { transition-timing-function: cubic-bezier(.45, 0, .55, 1); }
-/* The ball rolls as it travels: more yards, more turns */
-#pitchBall use { transform-box: fill-box; transform-origin: center; }
-#pitchBall.roll use { animation: roll var(--dur, .75s) cubic-bezier(.2, .8, .2, 1) both; }
-@keyframes roll { to { transform: rotate(var(--turns, 720deg)); } }
-#pitchTrail { opacity: 0; stroke: var(--chalk); stroke-width: 3; stroke-linecap: round; stroke-dasharray: 3 7; }
-#pitchTrail.show { animation: trail 1s ease-out forwards; }
-@keyframes trail { 0% { opacity: 0; } 25% { opacity: .9; } 100% { opacity: 0; } }
 #goalNet { transition: opacity .2s; transform-box: fill-box; transform-origin: right center; }
 #goalNet.hit { animation: netHit .7s ease-out, netWobble .7s cubic-bezier(.3, 1.4, .5, 1); }
 @keyframes netHit { 0% { opacity: .9; } 20% { opacity: 1; filter: drop-shadow(0 0 6px #fff); } 100% { opacity: .9; } }
 @keyframes netWobble { 0% { transform: scaleX(1); } 30% { transform: scaleX(2.2); } 60% { transform: scaleX(.8); } 100% { transform: scaleX(1); } }
-.pitch-wrap { transition: transform .55s cubic-bezier(.2, .8, .2, 1), filter .4s ease; transform-origin: 88% 50%; }
-.pitch-wrap.zoom { transform: scale(1.07); }
-.pitch-wrap.sad { filter: saturate(.55) brightness(.92); }
-/* Screen shake, scaled to how rare the answer was */
-#play.quake { animation: quake .4s cubic-bezier(.36, .07, .19, .97) both; }
-#play.quake-1 { --q: 2px; } #play.quake-2 { --q: 4px; } #play.quake-3 { --q: 7px; } #play.quake-4 { --q: 11px; }
-@keyframes quake {
-  10%, 90% { transform: translate(calc(var(--q, 4px) * -1), 0); }
-  20%, 80% { transform: translate(var(--q, 4px), calc(var(--q, 4px) * -.4)); }
-  30%, 50%, 70% { transform: translate(calc(var(--q, 4px) * -1), var(--q, 4px)); }
-  40%, 60% { transform: translate(var(--q, 4px), calc(var(--q, 4px) * .4)); }
-}
 .prompt.in { animation: rise .4s cubic-bezier(.2, .8, .2, 1) both; }
 @keyframes rise { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
 .pitch-text { margin: 0; display: flex; justify-content: space-between; gap: 8px; }
@@ -477,18 +460,19 @@ svg.i { width: 1.25em; height: 1.25em; flex: none; }
 
 /* ---------- Stadium atmosphere (fixed behind everything) ---------- */
 .stadium { position: fixed; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; }
-.sky { position: absolute; inset: 0; background: linear-gradient(to bottom, var(--sky-1), var(--sky-2) 55%, var(--bg)); }
-.cloud { position: absolute; top: 9%; left: -30%; width: 34vw; min-width: 220px; height: 9vw; min-height: 60px; border-radius: 999px; background: var(--cloud); filter: blur(22px); animation: drift 110s linear infinite; }
-.cloud.c2 { top: 17%; width: 24vw; min-width: 160px; height: 6vw; min-height: 44px; animation-duration: 150s; animation-delay: -60s; }
-.cloud.c3 { top: 4%; width: 18vw; min-width: 120px; height: 5vw; min-height: 36px; animation-duration: 130s; animation-delay: -110s; }
+.sky { position: absolute; inset: 0; background: linear-gradient(to bottom, var(--sky-1), var(--sky-2) 60%, var(--bg)); }
+.cloud { position: absolute; top: 7%; left: -30%; width: 34vw; min-width: 220px; height: 8vw; min-height: 56px; border-radius: 999px; background: var(--cloud); filter: blur(22px); animation: drift 120s linear infinite; }
+.cloud.c2 { top: 15%; width: 22vw; min-width: 150px; height: 5vw; min-height: 40px; animation-duration: 160s; animation-delay: -70s; }
 @keyframes drift { from { transform: translateX(0); } to { transform: translateX(170vw); } }
-.stands { position: absolute; left: 0; right: 0; bottom: 0; width: 100%; height: min(34vh, 340px); }
-.stands .crowd { transform-box: fill-box; transform-origin: center bottom; }
-.stadium.roar .crowd { animation: bounce .32s ease-in-out 4 alternate; }
-@keyframes bounce { to { transform: translateY(-4px); } }
-.beam { position: absolute; bottom: 14vh; width: 44vw; height: 70vh; opacity: .22; background: radial-gradient(ellipse at top, var(--light) 0%, transparent 62%); mix-blend-mode: screen; animation: glow 7s ease-in-out infinite alternate; }
-.beam.b1 { left: -8vw; } .beam.b2 { right: -8vw; animation-delay: -3.5s; }
-@keyframes glow { from { opacity: .16; } to { opacity: .3; } }
+.bowl { position: absolute; left: 0; right: 0; bottom: 0; width: 100%; height: min(52vh, 520px); }
+.fans { transform-box: fill-box; transform-origin: center bottom; }
+.stadium.roar .fans-a { animation: jump .28s ease-in-out 6 alternate; }
+.stadium.roar .fans-b { animation: jump .28s ease-in-out .09s 6 alternate; }
+.stadium.roar .fans-c { animation: jump .28s ease-in-out .18s 6 alternate; }
+@keyframes jump { to { transform: translateY(-6px); } }
+.lamp-glow { animation: lampglow 5s ease-in-out infinite alternate; }
+.lamp-glow.g2 { animation-delay: -1.7s; } .lamp-glow.g3 { animation-delay: -3.1s; } .lamp-glow.g4 { animation-delay: -4.2s; }
+@keyframes lampglow { from { opacity: .55; } to { opacity: .9; } }
 .flashes i { position: absolute; width: 5px; height: 5px; border-radius: 50%; background: #fff; box-shadow: 0 0 10px 3px rgba(255,255,255,.8); opacity: 0; animation: camflash .45s ease-out var(--d, 0s) forwards; }
 @keyframes camflash { 0% { opacity: 0; transform: scale(.4); } 30% { opacity: 1; transform: scale(1.3); } 100% { opacity: 0; transform: scale(.8); } }
 
@@ -524,11 +508,10 @@ svg.i { width: 1.25em; height: 1.25em; flex: none; }
 @media (prefers-reduced-motion: reduce) {
   .spin .ball, .spin-slow .ball, .deck.low .secs, .shake, .reveal-icon.pop,
   .deck.halt .ball, .deck.settle, .deck.pop-s, .deck.pop-l, .ripple, .float, #flash.go, .reveal-pts.pop, #goalNet.hit,
-  #pitchBall.roll use, #pitchTrail.show, #play.quake, .prompt.in, .cloud, .stadium.roar .crowd, .beam, .flashes i,
+  .prompt.in, .cloud, .stadium.roar .fans, .lamp-glow, .flashes i,
   .wordmark .ltr, .hero .title2, .hero .subhead, .hero .nudge { animation: none; }
   .deck.glow { filter: none; }
-  .pitch-wrap.zoom { transform: none; }
-  .sheet, .backdrop, .toast, .bars span, .ring .bar, .btn, .hero-ball, #pitchBall, .pitch-wrap { transition: none; }
+  .sheet, .backdrop, .toast, .bars span, .ring .bar, .btn, .hero-ball, #pitchBall { transition: none; }
 }
 
 /* ---------- Wide screens (landscape / desktop): the broadcast stage ----------
@@ -795,16 +778,76 @@ svg.i { width: 1.25em; height: 1.25em; flex: none; }
 
 <div class="stadium" id="stadium" aria-hidden="true">
   <div class="sky"></div>
-  <div class="cloud c1"></div><div class="cloud c2"></div><div class="cloud c3"></div>
-  <svg class="stands" viewBox="0 0 1200 340" preserveAspectRatio="none">
-    <defs><pattern id="crowd" width="9" height="9" patternUnits="userSpaceOnUse"><circle cx="4.5" cy="4.5" r="2.2" fill="var(--stand-2)"/></pattern></defs>
-    <path d="M0 150 L1200 110 L1200 340 L0 340 Z" fill="var(--stand)"/>
-    <path class="crowd" d="M0 168 L1200 128 L1200 300 L0 300 Z" fill="url(#crowd)"/>
-    <rect x="0" y="300" width="1200" height="40" fill="var(--grass)" opacity=".5"/>
-    <g stroke="var(--label-3)" stroke-width="4"><line x1="140" y1="30" x2="140" y2="156"/><line x1="1060" y1="30" x2="1060" y2="114"/></g>
-    <g fill="var(--light)"><rect x="104" y="12" width="72" height="20" rx="5"/><rect x="1024" y="12" width="72" height="20" rx="5"/></g>
+  <div class="cloud c1"></div><div class="cloud c2"></div>
+  <svg class="bowl" viewBox="0 0 1200 520" preserveAspectRatio="none">
+    <defs>
+      <!-- Little fans: a head and a body, three colourways offset so the rows interleave -->
+      <pattern id="fansA" width="14" height="16" patternUnits="userSpaceOnUse"><circle cx="7" cy="4" r="2.6" fill="var(--fan-4)"/><rect x="3.5" y="7" width="7" height="8" rx="3" fill="var(--fan-1)"/></pattern>
+      <pattern id="fansB" width="14" height="16" patternUnits="userSpaceOnUse" patternTransform="translate(5 3)"><circle cx="7" cy="4" r="2.6" fill="var(--fan-4)"/><rect x="3.5" y="7" width="7" height="8" rx="3" fill="var(--fan-2)"/></pattern>
+      <pattern id="fansC" width="14" height="16" patternUnits="userSpaceOnUse" patternTransform="translate(9 7)"><circle cx="7" cy="4" r="2.6" fill="var(--fan-4)"/><rect x="3.5" y="7" width="7" height="8" rx="3" fill="var(--fan-3)"/></pattern>
+      <pattern id="lamps" width="12" height="12" patternUnits="userSpaceOnUse"><circle cx="6" cy="6" r="4" fill="var(--light)"/></pattern>
+      <pattern id="mow" width="80" height="80" patternUnits="userSpaceOnUse"><rect width="40" height="80" fill="var(--grass-2)"/></pattern>
+      <radialGradient id="glow"><stop offset="0" stop-color="var(--light)" stop-opacity=".95"/><stop offset="1" stop-color="var(--light)" stop-opacity="0"/></radialGradient>
+      <linearGradient id="cone" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="var(--light)" stop-opacity=".35"/><stop offset="1" stop-color="var(--light)" stop-opacity="0"/></linearGradient>
+      <linearGradient id="tier" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="var(--stand-2)"/><stop offset="1" stop-color="var(--stand)"/></linearGradient>
+      <clipPath id="upperClip"><path d="M0 196 Q600 150 1200 196 L1200 282 Q600 236 0 282 Z"/></clipPath>
+      <clipPath id="lowerClip"><path d="M0 312 Q600 272 1200 312 L1200 392 Q600 352 0 392 Z"/></clipPath>
+    </defs>
+    <!-- Floodlight pylons: two tall at the front corners, two shorter behind -->
+    <g transform="translate(300 44) scale(0.75)">
+      <polygon points="-7,0 7,0 16,190 -16,190" fill="var(--stand-2)"/>
+      <path d="M-5 20 L5 40 M5 20 L-5 40 M-7 60 L7 80 M7 60 L-7 80 M-9 100 L9 120 M9 100 L-9 120 M-11 140 L11 160 M11 140 L-11 160" stroke="var(--stand)" stroke-width="2.5" fill="none"/>
+      <polygon points="-30,8 30,8 180,420 -180,420" fill="url(#cone)" opacity=".55"/>
+      <ellipse class="lamp-glow g2" cx="0" cy="-2" rx="78" ry="34" fill="url(#glow)"/>
+      <rect x="-40" y="-26" width="80" height="30" rx="6" fill="var(--label-3)"/>
+      <rect x="-37" y="-23" width="74" height="24" rx="4" fill="url(#lamps)"/>
+    </g>
+    <g transform="translate(900 44) scale(0.75)">
+      <polygon points="-7,0 7,0 16,190 -16,190" fill="var(--stand-2)"/>
+      <path d="M-5 20 L5 40 M5 20 L-5 40 M-7 60 L7 80 M7 60 L-7 80 M-9 100 L9 120 M9 100 L-9 120 M-11 140 L11 160 M11 140 L-11 160" stroke="var(--stand)" stroke-width="2.5" fill="none"/>
+      <polygon points="-30,8 30,8 180,420 -180,420" fill="url(#cone)" opacity=".55"/>
+      <ellipse class="lamp-glow g3" cx="0" cy="-2" rx="78" ry="34" fill="url(#glow)"/>
+      <rect x="-40" y="-26" width="80" height="30" rx="6" fill="var(--label-3)"/>
+      <rect x="-37" y="-23" width="74" height="24" rx="4" fill="url(#lamps)"/>
+    </g>
+    <g transform="translate(96 30) scale(1)">
+      <polygon points="-7,0 7,0 16,190 -16,190" fill="var(--stand-2)"/>
+      <path d="M-5 20 L5 40 M5 20 L-5 40 M-7 60 L7 80 M7 60 L-7 80 M-9 100 L9 120 M9 100 L-9 120 M-11 140 L11 160 M11 140 L-11 160" stroke="var(--stand)" stroke-width="2.5" fill="none"/>
+      <polygon points="-30,8 30,8 180,420 -180,420" fill="url(#cone)" opacity=".55"/>
+      <ellipse class="lamp-glow " cx="0" cy="-2" rx="78" ry="34" fill="url(#glow)"/>
+      <rect x="-40" y="-26" width="80" height="30" rx="6" fill="var(--label-3)"/>
+      <rect x="-37" y="-23" width="74" height="24" rx="4" fill="url(#lamps)"/>
+    </g>
+    <g transform="translate(1104 30) scale(1)">
+      <polygon points="-7,0 7,0 16,190 -16,190" fill="var(--stand-2)"/>
+      <path d="M-5 20 L5 40 M5 20 L-5 40 M-7 60 L7 80 M7 60 L-7 80 M-9 100 L9 120 M9 100 L-9 120 M-11 140 L11 160 M11 140 L-11 160" stroke="var(--stand)" stroke-width="2.5" fill="none"/>
+      <polygon points="-30,8 30,8 180,420 -180,420" fill="url(#cone)" opacity=".55"/>
+      <ellipse class="lamp-glow g4" cx="0" cy="-2" rx="78" ry="34" fill="url(#glow)"/>
+      <rect x="-40" y="-26" width="80" height="30" rx="6" fill="var(--label-3)"/>
+      <rect x="-37" y="-23" width="74" height="24" rx="4" fill="url(#lamps)"/>
+    </g>
+    <!-- Roof line and upper tier -->
+    <path d="M0 172 Q600 122 1200 172 L1200 196 Q600 150 0 196 Z" fill="var(--stand-2)"/>
+    <path d="M0 196 Q600 150 1200 196 L1200 290 Q600 244 0 290 Z" fill="url(#tier)"/>
+    <g clip-path="url(#upperClip)">
+      <rect class="fans fans-a" x="0" y="150" width="1200" height="140" fill="url(#fansA)"/>
+      <rect class="fans fans-b" x="0" y="150" width="1200" height="140" fill="url(#fansB)"/>
+      <rect class="fans fans-c" x="0" y="150" width="1200" height="140" fill="url(#fansC)"/>
+    </g>
+    <!-- Walkway and lower tier -->
+    <path d="M0 290 Q600 244 1200 290 L1200 312 Q600 272 0 312 Z" fill="var(--stand-2)"/>
+    <path d="M0 312 Q600 272 1200 312 L1200 400 Q600 360 0 400 Z" fill="url(#tier)"/>
+    <g clip-path="url(#lowerClip)">
+      <rect class="fans fans-b" x="0" y="270" width="1200" height="130" fill="url(#fansB)"/>
+      <rect class="fans fans-c" x="0" y="270" width="1200" height="130" fill="url(#fansC)"/>
+      <rect class="fans fans-a" x="0" y="270" width="1200" height="130" fill="url(#fansA)"/>
+    </g>
+    <!-- Advertising boards and the pitch edge -->
+    <path d="M0 400 Q600 360 1200 400 L1200 418 Q600 378 0 418 Z" fill="var(--board)" opacity=".85"/>
+    <path d="M0 418 Q600 378 1200 418 L1200 520 L0 520 Z" fill="var(--grass)"/>
+    <path d="M0 418 Q600 378 1200 418 L1200 520 L0 520 Z" fill="url(#mow)" opacity=".7"/>
+    <path d="M0 440 Q600 400 1200 440" stroke="var(--chalk)" stroke-width="3" fill="none" opacity=".8"/>
   </svg>
-  <div class="beam b1"></div><div class="beam b2"></div>
   <div class="flashes" id="flashes"></div>
 </div>
 
@@ -888,7 +931,6 @@ svg.i { width: 1.25em; height: 1.25em; flex: none; }
               <rect x="305" y="23" width="14" height="18"/>
             </g>
             <rect id="goalNet" x="313" y="21" width="6" height="22" fill="#fff" opacity=".9"/>
-            <line id="pitchTrail" x1="14" y1="32" x2="14" y2="32"/>
             <g id="pitchBall"><use href="#i-ball" x="6" y="24" width="16" height="16"/></g>
           </g>
         </svg>
@@ -1361,28 +1403,7 @@ svg.i { width: 1.25em; height: 1.25em; flex: none; }
     b.style.transform = `translateX(${(Math.min(PITCH, pos) / PITCH) * 296}px)`;
     if (jump) requestAnimationFrame(() => b.classList.remove("jump"));
   }
-  /* Krillion-style travel: the ball rolls along a chalk trail, the stage shakes in proportion to the carry. */
   const ballX = (pos) => 14 + (Math.min(PITCH, pos) / PITCH) * 296;
-  function travelBall(from, to, tier, back) {
-    const b = $("pitchBall"), dist = Math.abs(to - from);
-    const dur = reduceMotion ? 0 : (back ? 0.9 : 0.45 + 0.6 * (dist / PITCH));
-    b.style.setProperty("--dur", `${dur}s`);
-    b.style.setProperty("--turns", `${Math.round((back ? -1 : 1) * (360 + 540 * (dist / PITCH)))}deg`);
-    b.classList.toggle("back", !!back);
-    b.classList.remove("roll"); void b.getBoundingClientRect(); b.classList.add("roll");
-    const t = $("pitchTrail");
-    t.setAttribute("x1", ballX(from)); t.setAttribute("x2", ballX(Math.min(PITCH, to)));
-    t.classList.remove("show"); void t.getBoundingClientRect(); if (!back) t.classList.add("show");
-    setBall(to);
-    setTimeout(() => { b.classList.remove("roll", "back"); b.style.removeProperty("--dur"); }, dur * 1000 + 50);
-    if (tier >= 1) quake(back ? 1 : tier);
-  }
-  function quake(level) {
-    const el = $("play");
-    el.classList.remove("quake", "quake-1", "quake-2", "quake-3", "quake-4"); void el.offsetWidth;
-    el.classList.add("quake", `quake-${Math.min(4, Math.max(1, level))}`);
-    setTimeout(() => el.classList.remove("quake", `quake-${Math.min(4, Math.max(1, level))}`), 450);
-  }
   function cameraFlashes(n) {
     if (reduceMotion) return;
     const box = $("flashes"); box.innerHTML = "";
@@ -1451,7 +1472,6 @@ svg.i { width: 1.25em; height: 1.25em; flex: none; }
     G.left = ROUND_SECONDS;
     $("trackNo").textContent = (G.mode === "daily" ? `Daily #${G.n} · ` : "") + `Possession ${G.i + 1} of ${ROUND_SIZE}`;
     const pt = $("promptText"); pt.textContent = p.text; pt.classList.remove("in"); void pt.offsetWidth; pt.classList.add("in");
-    document.querySelector(".pitch-wrap").classList.remove("zoom", "sad");
     $("tip").hidden = !(store.rounds === 0 && G.i === 0);
     feedback.textContent = "";
     $("guessForm").classList.remove("wrong");
@@ -1608,10 +1628,8 @@ svg.i { width: 1.25em; height: 1.25em; flex: none; }
   function celebrateGoal() {
     const net = $("goalNet");
     net.classList.remove("hit"); void net.getBoundingClientRect(); net.classList.add("hit");
-    document.querySelector(".pitch-wrap").classList.add("zoom");
     const st = $("stadium"); st.classList.remove("roar"); void st.offsetWidth; st.classList.add("roar");
     cameraFlashes(26);
-    quake(4);
     floatText("GOAL!", "goal");
     flash(.5, "goal");
     confetti([cssVar("--tint"), cssVar("--t4"), "#ffffff", cssVar("--t1")], 180);
@@ -1632,7 +1650,7 @@ svg.i { width: 1.25em; height: 1.25em; flex: none; }
 
     // Move the ball. Rarer answer = longer carry. A miss gives up half your position.
     const pts = ans ? TIERS[ans.tier].pts : 0;
-    const before = G.total, posBefore = G.pos;
+    const before = G.total;
     let goal = false, landing;
     if (ans) {
       const n = G.pos + pts;
@@ -1655,8 +1673,7 @@ svg.i { width: 1.25em; height: 1.25em; flex: none; }
       // Quiet miss: dim, ball drifts back, no drama, move on quickly.
       deck.className = "deck revealed tier-none dim";
       secsEl.textContent = "0";
-      const pw = document.querySelector(".pitch-wrap"); pw.classList.add("sad"); setTimeout(() => pw.classList.remove("sad"), 1100);
-      travelBall(posBefore, landing, 0, true);
+      setBall(landing);
       renderPitchText(G.pos);
       haptic([40, 60, 40]);
       setTimeout(() => showReveal(token, -1), how === "timeout" ? 500 : 300);
@@ -1678,7 +1695,7 @@ svg.i { width: 1.25em; height: 1.25em; flex: none; }
       if (fx.flash) flash(fx.flash, `tier-${ans.tier}`);
       if (fx.confetti) confetti([cssVar(`--t${ans.tier}`), cssVar("--tint"), cssVar("--t1"), "#ffffff"], fx.confetti);
       haptic(fx.haptic);
-      travelBall(posBefore, landing, ans.tier);
+      setBall(landing);
       if (!goal) {
         renderPitchText(G.pos);
         setTimeout(() => showReveal(token, ans.tier), fx.sheet);
@@ -1692,7 +1709,6 @@ svg.i { width: 1.25em; height: 1.25em; flex: none; }
         renderPitchText(G.pos);
         setTimeout(() => {
           if (!G || token !== revealToken) return;
-          document.querySelector(".pitch-wrap").classList.remove("zoom");
           setBall(G.pos, true);
           showReveal(token, 4);
         }, GOAL_HOLD);
