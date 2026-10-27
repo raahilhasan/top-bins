@@ -897,7 +897,7 @@ svg.i { width: 1.25em; height: 1.25em; flex: none; }
 
       <h3 class="section-h">How far does your answer carry the ball?</h3>
       <div class="group" id="tierGroup"></div>
-      <p class="footnote group-foot">Example prompt: “Name a fruit.” Reach 100 yards and you score. Wrong guesses cost 2 seconds, so keep going.</p>
+      <p class="footnote group-foot">Example prompt: “Name a fruit.” Reach 100 yards and you score. Wrong guesses don't cost time, so keep trying.</p>
       </div>
 
       <p class="footnote group-foot" style="margin-top:18px">Top Bins is an independent game. Answer lists are written by hand, so if a right answer gets rejected, it's missing from the list rather than wrong. Progress is saved only in this browser. <a href="privacy.html" style="color:var(--tint)">Privacy</a></p>
@@ -1040,7 +1040,7 @@ svg.i { width: 1.25em; height: 1.25em; flex: none; }
   <div class="grabber" aria-hidden="true"></div>
   <h2 class="title2" id="helpTitle">How to play</h2>
   <div class="group">
-    <div class="row indent"><span class="tier-dot tier-1"><svg viewBox="0 0 24 24"><use href="#i-clock"/></svg></span><div class="row-main"><span class="row-title">Type any right answer before the clock runs out.</span><span class="row-sub">You get 20 seconds per possession. Wrong guesses cost 2 seconds.</span></div></div>
+    <div class="row indent"><span class="tier-dot tier-1"><svg viewBox="0 0 24 24"><use href="#i-clock"/></svg></span><div class="row-main"><span class="row-title">Type any right answer before the clock runs out.</span><span class="row-sub">You get 20 seconds per possession, and wrong guesses don't cost you any of it.</span></div></div>
     <div class="row indent"><span class="tier-dot tier-2"><svg viewBox="0 0 24 24"><use href="#i-sparkle"/></svg></span><div class="row-main"><span class="row-title">Rarer answers carry the ball further.</span><span class="row-sub">A backpass is 10 yards. A top-bins answer is 100: a goal from anywhere.</span></div></div>
     <div class="row indent"><span class="tier-dot tier-3"><svg viewBox="0 0 24 24"><use href="#i-goal"/></svg></span><div class="row-main"><span class="row-title">Reach 100 yards to score.</span><span class="row-sub">Give the ball away or run out of time and you lose half your field position.</span></div></div>
     <div class="row indent"><span class="tier-dot tier-4"><svg viewBox="0 0 24 24"><use href="#i-crown"/></svg></span><div class="row-main"><span class="row-title">Climb the ranks.</span><span class="row-sub">Every yard counts toward your next rank. Play daily to build a streak.</span></div></div>
@@ -1060,7 +1060,6 @@ svg.i { width: 1.25em; height: 1.25em; flex: none; }
   const SITE_URL = "https://raahilhasan.github.io/top-bins/";   // Shared results link back here. Change it if you move to a custom domain.
   const ROUND_SIZE = 7;
   const ROUND_SECONDS = 20;
-  const WRONG_PENALTY = 2;
   const PITCH = 100;            // yards from your own goal line to theirs
   const TIERS = [
     { name: "Backpass", pts: 10, bar: "▁", icon: "i-back" },
@@ -1539,8 +1538,7 @@ svg.i { width: 1.25em; height: 1.25em; flex: none; }
     if (ans) {
       finishTrack(ans, "answered");
     } else {
-      G.left = Math.max(0, G.left - WRONG_PENALTY);
-      feedback.textContent = `“${raw}” isn't on the list · −${WRONG_PENALTY}s`;
+      feedback.textContent = `“${raw}” isn't on the list`;
       const form = $("guessForm");
       form.classList.add("wrong");
       shake(form);
